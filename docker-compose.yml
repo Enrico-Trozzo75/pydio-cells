@@ -1,0 +1,22 @@
+services:
+
+  cells:
+    image: pydio/cells:latest
+    restart: unless-stopped
+    ports:
+      - "8200:8080"
+    volumes: 
+      - ./cellsdir:/var/cells
+      - ./data:/var/cells/data
+      - ./datos:/var/datos
+
+  mysql:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: N3m3sis@
+      MYSQL_DATABASE: cells
+      MYSQL_USER: pydio
+      MYSQL_PASSWORD: N3m3sis@
+    volumes:
+      - ./mysqldir:/var/lib/mysql
