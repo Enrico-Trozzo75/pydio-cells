@@ -8,8 +8,11 @@ services:
     volumes: 
       - ./cellsdir:/var/cells
       - ./data:/var/cells/data
-      - "D:/datos:/mnt/datos"
-
+      - ./nodejs:/home/app
+      - type: bind
+        source: d:/datos
+        target: /media/datos
+          
   mysql:
     image: mariadb:latest
     restart: unless-stopped
