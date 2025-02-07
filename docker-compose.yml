@@ -12,7 +12,7 @@ services:
           type: nfs
           o: addr=192.168.10.75
           device: :mnt/user/video
-          
+    volumes:  
       - ./cellsdir:/var/cells
       - ./data:/var/cells/data
 
