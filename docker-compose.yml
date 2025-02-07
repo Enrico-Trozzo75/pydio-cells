@@ -6,13 +6,16 @@ services:
     ports:
       - "8200:8080"
     volumes: 
+      video:
+        driver: local
+        driver_opts:
+          type: nfs
+          o: addr=192.168.10.75
+          device: :mnt/user/video
+          
       - ./cellsdir:/var/cells
       - ./data:/var/cells/data
-      - ./nodejs:/home/app
-      - type: bind
-        source: d:/datos
-        target: /media/datos
-          
+
   mysql:
     image: mariadb:latest
     restart: unless-stopped
