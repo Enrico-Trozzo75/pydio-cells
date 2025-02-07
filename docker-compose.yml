@@ -5,13 +5,6 @@ services:
     restart: unless-stopped
     ports:
       - "8200:8080"
-    volumes: 
-      video:
-        driver: local
-        driver_opts:
-          type: nfs
-          o: addr=192.168.10.75
-          device: :mnt/user/video
     volumes:  
       - ./cellsdir:/var/cells
       - ./data:/var/cells/data
